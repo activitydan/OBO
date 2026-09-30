@@ -227,8 +227,6 @@ button{font:inherit;color:inherit}
   .nav{display:none}
   .site-header .wrap{gap:14px}
   .kicker{flex-wrap:wrap;gap:4px 10px}
-  .hero .kicker .sep{display:none}
-  .hero .kicker span:first-child::after{content:" ·"}
   .site-header .lang{margin-left:auto}
   .section-head{grid-template-columns:1fr}
   .features{grid-template-columns:1fr}

@@ -45,7 +45,7 @@ const DOWNLOADS = {
 const TEXT = {
   it: {
     'nav.features': 'Funzioni', 'nav.how': 'Come funziona', 'nav.screens': 'Schermate', 'nav.download': 'Scarica', 'cta.download': 'Scarica', 'lang.label': 'Lingua',
-    'hero.kicker': 'Versione 2.0 · Windows e macOS', 'hero.title': 'Animazione disegnata a mano, un frame alla volta.',
+    'hero.title': 'Animazione disegnata a mano, un frame alla volta.',
     'hero.lead': "ONE BY ONE trasforma un video o una sequenza di immagini in fogli da stampare. Disegni sulla carta, scansioni, e l'app ricompone l'animazione. Tutto sul tuo computer, senza internet.",
     'hero.shotAlt': "La schermata Revisione di ONE BY ONE: un foglio scansionato con i quattro marcatori d'angolo riconosciuti",
     'dl.win': 'Scarica per Windows x64', 'dl.winMeta': 'Windows 10 e 11 · 64 bit · 108 MB', 'dl.mac': 'Scarica per macOS', 'dl.macMeta': 'Apple Silicon e Intel · macOS 12 o successivo',
@@ -84,7 +84,7 @@ const TEXT = {
   },
   en: {
     'nav.features': 'Features', 'nav.how': 'How it works', 'nav.screens': 'Screens', 'nav.download': 'Download', 'cta.download': 'Download', 'lang.label': 'Language',
-    'hero.kicker': 'Version 2.0 · Windows and macOS', 'hero.title': 'Hand-drawn animation, one frame at a time.',
+    'hero.title': 'Hand-drawn animation, one frame at a time.',
     'hero.lead': 'ONE BY ONE turns a video or an image sequence into sheets ready to print. You draw on paper, you scan, and the app puts the animation back together. All on your computer, no internet needed.',
     'hero.shotAlt': 'The ONE BY ONE Review screen: a scanned sheet with its four corner markers detected',
     'dl.win': 'Download for Windows x64', 'dl.winMeta': 'Windows 10 and 11 · 64-bit · 108 MB', 'dl.mac': 'Download for macOS', 'dl.macMeta': 'Apple Silicon and Intel · macOS 12 or later',
@@ -123,7 +123,7 @@ const TEXT = {
   },
   fr: {
     'nav.features': 'Fonctions', 'nav.how': 'Comment ça marche', 'nav.screens': 'Écrans', 'nav.download': 'Télécharger', 'cta.download': 'Télécharger', 'lang.label': 'Langue',
-    'hero.kicker': 'Version 2.0 · Windows et macOS', 'hero.title': 'Animation dessinée à la main, une image à la fois.',
+    'hero.title': 'Animation dessinée à la main, une image à la fois.',
     'hero.lead': "ONE BY ONE transforme une vidéo ou une séquence d'images en planches à imprimer. Vous dessinez sur papier, vous scannez, et l'application recompose l'animation. Tout sur votre ordinateur, sans internet.",
     'hero.shotAlt': "L'écran Révision de ONE BY ONE : une planche scannée avec ses quatre repères d'angle détectés",
     'dl.win': 'Télécharger pour Windows x64', 'dl.winMeta': 'Windows 10 et 11 · 64 bits · 108 Mo', 'dl.mac': 'Télécharger pour macOS', 'dl.macMeta': 'Apple Silicon et Intel · macOS 12 ou ultérieur',
