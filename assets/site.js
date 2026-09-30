@@ -17,15 +17,25 @@ const ICONS = {
 };
 
 /* ------------------------------------------------------------------
-   File da scaricare: dalla Release "Download" del repo GitHub
-   activitydan/OBO (deve essere pubblico). Arrivano con il nome che
-   hanno su GitHub: il browser ignora "download" per un altro dominio.
+   File da scaricare. Programmi: dalla Release "Download" del repo
+   GitHub activitydan/OBO. LEGGIMI: dalla cartella downloads/ del sito.
+   I file della Release arrivano con il nome che hanno su GitHub
+   (spazi → punti): il browser ignora "download" per un altro dominio.
    ------------------------------------------------------------------ */
 const RELEASE = 'https://github.com/activitydan/OBO/releases/download/Download/';
 const DOWNLOADS = {
-  windows: { href: RELEASE + 'ONE.BY.ONE.Setup.2.0.exe', name: 'ONE.BY.ONE.Setup.2.0.exe' },
-  'mac-arm': { href: RELEASE + 'ONE.BY.ONE.2.0.macOS.Apple.Silicon.zip', name: 'ONE.BY.ONE.2.0.macOS.Apple.Silicon.zip', size: '126 MB' },
-  'mac-intel': { href: RELEASE + 'ONE.BY.ONE.2.0.macOS.Intel.zip', name: 'ONE.BY.ONE.2.0.macOS.Intel.zip', size: '129 MB' },
+  windows: [
+    { href: RELEASE + 'ONE.BY.ONE.Setup.2.0.exe', name: 'ONE.BY.ONE.Setup.2.0.exe' },
+    { href: 'downloads/LEGGIMI-Windows.txt', name: 'LEGGIMI.txt' },
+  ],
+  'mac-arm': [
+    { href: RELEASE + 'ONE.BY.ONE.2.0.macOS.Apple.Silicon.zip', name: 'ONE.BY.ONE.2.0.macOS.Apple.Silicon.zip', size: '126 MB' },
+    { href: 'downloads/LEGGIMI-macOS.txt', name: 'LEGGIMI.txt' },
+  ],
+  'mac-intel': [
+    { href: RELEASE + 'ONE.BY.ONE.2.0.macOS.Intel.zip', name: 'ONE.BY.ONE.2.0.macOS.Intel.zip', size: '129 MB' },
+    { href: 'downloads/LEGGIMI-macOS.txt', name: 'LEGGIMI.txt' },
+  ],
 };
 
 /* ------------------------------------------------------------------ Testi */
@@ -36,7 +46,7 @@ const TEXT = {
     'hero.lead': "ONE BY ONE trasforma un video o una sequenza di immagini in fogli da stampare. Disegni sulla carta, scansioni, e l'app ricompone l'animazione. Tutto sul tuo computer, senza internet.",
     'hero.shotAlt': "La schermata Revisione di ONE BY ONE: un foglio scansionato con i quattro marcatori d'angolo riconosciuti",
     'dl.win': 'Scarica per Windows', 'dl.winMeta': 'Windows 10 e 11 · 64 bit · 108 MB', 'dl.mac': 'Scarica per macOS', 'dl.macMeta': 'Apple Silicon e Intel · macOS 12 o successivo',
-    'dl.armMeta': 'Chip M1, M2, M3, M4 · 126 MB', 'dl.intelMeta': 'Mac fino al 2020 · 129 MB', 'dl.note': 'Download gratuito da GitHub.', 'dl.all': 'Tutte le opzioni ›',
+    'dl.armMeta': 'Chip M1, M2, M3, M4 · 126 MB', 'dl.intelMeta': 'Mac fino al 2020 · 129 MB', 'dl.note': 'Un clic scarica il programma e il suo LEGGIMI.', 'dl.all': 'Tutte le opzioni ›',
     'statement.a': 'Dal video alla carta.', 'statement.b': 'Dalla carta', 'statement.c': "all'animazione.",
     'features.kicker': 'Funzioni', 'features.title': 'Tutto quello che serve, niente di più.', 'features.intro': 'Il digitale fa il lavoro noioso (estrarre, impaginare, riconoscere, ritagliare), così il tempo resta per disegnare.',
     'f1.t': 'Video o sequenze di immagini', 'f1.d': 'Importa un video ed estrai i frame alla risoluzione originale, oppure parti da una sequenza di immagini già numerata.',
@@ -56,14 +66,14 @@ const TEXT = {
     'cap.sheet.t': 'Foglio', 'cap.sheet.d': 'Il foglio da stampare, con QR e marcatori per il riallineamento automatico.',
     'cap.review.t': 'Revisione', 'cap.review.d': 'La scansione con i quattro marcatori riconosciuti e le aree di ogni frame.',
     'cap.export.t': 'Esporta', 'cap.export.d': "L'animazione ricostruita, pronta in PNG, JPG, GIF o MP4.",
-    'download.kicker': 'Scarica', 'download.title': 'Scarica ONE BY ONE.', 'download.intro': 'Un clic scarica il programma, pronto da installare.',
+    'download.kicker': 'Scarica', 'download.title': 'Scarica ONE BY ONE.', 'download.intro': "Un clic scarica due file: il programma e il suo LEGGIMI, uno accanto all'altro, senza cartelle da aprire.",
     'win.req': 'Windows 10 o 11 · 64 bit (Intel o AMD)', 'win.i1': 'Doppio clic su “ONE.BY.ONE.Setup.2.0.exe”.', 'win.i2': "L'app si installa da sola, senza permessi di amministratore, e si apre.", 'win.i3': 'Da quel momento la trovi sul Desktop e nel menu Start.',
     'mac.req': 'macOS 12 Monterey o successivo', 'mac.chipLabel': 'Tipo di Mac', 'mac.chipHelp': 'Non sai quale? Menu Apple › Informazioni su questo Mac: “Chip Apple M…” è Apple Silicon, “Processore Intel” è Intel.',
     'mac.i1': 'Doppio clic sullo zip e trascina “ONE BY ONE” in Applicazioni.', 'mac.i2': 'Primo avvio: Impostazioni di Sistema › Privacy e sicurezza › “Apri comunque”.', 'mac.i3': 'Da quel momento si apre come qualsiasi altra app.',
-    'alt.text': 'Il download non parte?', 'alt.link': 'Scaricalo da GitHub ›', 'note.label': 'Nota',
-    'note.text': "L'app non è ancora firmata con un certificato Microsoft o Apple, quindi al primo avvio il sistema chiede una conferma (“Esegui comunque” su Windows, “Apri comunque” su Mac).",
-    'foot.font': 'Licenza del font', 'foot.made': 'Fatto a mano, un frame alla volta',
-    'toast.title': 'Download avviato', 'toast.text': 'Il file arriva da GitHub: lo trovi nella cartella Download.',
+    'alt.single': 'Solo un file?', 'alt.readme': 'LEGGIMI', 'note.label': 'Nota',
+    'note.text': "L'app non è ancora firmata con un certificato Microsoft o Apple, quindi al primo avvio il sistema chiede una conferma (“Esegui comunque” su Windows, “Apri comunque” su Mac). Il LEGGIMI spiega ogni passaggio. Se il browser chiede il permesso di scaricare più file, consenti: sono il programma e il suo LEGGIMI.",
+    'foot.readmeWin': 'LEGGIMI Windows', 'foot.readmeMac': 'LEGGIMI macOS', 'foot.font': 'Licenza del font', 'foot.made': 'Fatto a mano, un frame alla volta',
+    'toast.title': 'Download avviato: 2 file', 'toast.text': 'Se il browser chiede il permesso di scaricare più file, consenti.',
   },
   en: {
     'nav.features': 'Features', 'nav.how': 'How it works', 'nav.screens': 'Screens', 'nav.download': 'Download', 'cta.download': 'Download', 'lang.label': 'Language',
@@ -71,7 +81,7 @@ const TEXT = {
     'hero.lead': 'ONE BY ONE turns a video or an image sequence into sheets ready to print. You draw on paper, you scan, and the app puts the animation back together. All on your computer, no internet needed.',
     'hero.shotAlt': 'The ONE BY ONE Review screen: a scanned sheet with its four corner markers detected',
     'dl.win': 'Download for Windows', 'dl.winMeta': 'Windows 10 and 11 · 64-bit · 108 MB', 'dl.mac': 'Download for macOS', 'dl.macMeta': 'Apple Silicon and Intel · macOS 12 or later',
-    'dl.armMeta': 'M1, M2, M3, M4 chips · 126 MB', 'dl.intelMeta': 'Macs up to 2020 · 129 MB', 'dl.note': 'Free download from GitHub.', 'dl.all': 'All options ›',
+    'dl.armMeta': 'M1, M2, M3, M4 chips · 126 MB', 'dl.intelMeta': 'Macs up to 2020 · 129 MB', 'dl.note': 'One click downloads the app and its README.', 'dl.all': 'All options ›',
     'statement.a': 'From video to paper.', 'statement.b': 'From paper', 'statement.c': 'to animation.',
     'features.kicker': 'Features', 'features.title': 'Everything you need, nothing more.', 'features.intro': 'The computer does the tedious part (extracting, laying out, recognising, cropping) so your time goes into drawing.',
     'f1.t': 'Video or image sequences', 'f1.d': 'Import a video and extract its frames at full resolution, or start from an image sequence that is already numbered.',
@@ -91,14 +101,14 @@ const TEXT = {
     'cap.sheet.t': 'Sheet', 'cap.sheet.d': 'The printable sheet, with QR codes and markers for automatic realignment.',
     'cap.review.t': 'Review', 'cap.review.d': 'The scan with its four markers detected and the area of each frame.',
     'cap.export.t': 'Export', 'cap.export.d': 'The rebuilt animation, ready as PNG, JPG, GIF or MP4.',
-    'download.kicker': 'Download', 'download.title': 'Download ONE BY ONE.', 'download.intro': 'One click downloads the app, ready to install.',
+    'download.kicker': 'Download', 'download.title': 'Download ONE BY ONE.', 'download.intro': 'One click downloads two files: the app and its README, side by side, with no folders to open.',
     'win.req': 'Windows 10 or 11 · 64-bit (Intel or AMD)', 'win.i1': 'Double-click “ONE.BY.ONE.Setup.2.0.exe”.', 'win.i2': 'The app installs itself, with no administrator rights, and opens.', 'win.i3': 'From then on you find it on the Desktop and in the Start menu.',
     'mac.req': 'macOS 12 Monterey or later', 'mac.chipLabel': 'Type of Mac', 'mac.chipHelp': 'Not sure which? Apple menu › About This Mac: “Apple M… chip” means Apple Silicon, “Intel processor” means Intel.',
     'mac.i1': 'Double-click the zip and drag “ONE BY ONE” into Applications.', 'mac.i2': 'First launch: System Settings › Privacy & Security › “Open Anyway”.', 'mac.i3': 'From then on it opens like any other app.',
-    'alt.text': 'Download not starting?', 'alt.link': 'Get it from GitHub ›', 'note.label': 'Note',
-    'note.text': 'The app is not yet signed with a Microsoft or Apple certificate, so on first launch the system asks for confirmation (“Run anyway” on Windows, “Open Anyway” on Mac).',
-    'foot.font': 'Font licence', 'foot.made': 'Made by hand, one frame at a time',
-    'toast.title': 'Download started', 'toast.text': 'The file comes from GitHub: you will find it in your Downloads folder.',
+    'alt.single': 'Just one file?', 'alt.readme': 'README', 'note.label': 'Note',
+    'note.text': 'The app is not yet signed with a Microsoft or Apple certificate, so on first launch the system asks for confirmation (“Run anyway” on Windows, “Open Anyway” on Mac). The README walks you through it (it is written in Italian). If your browser asks to allow multiple downloads, allow it: they are the app and its README.',
+    'foot.readmeWin': 'README Windows', 'foot.readmeMac': 'README macOS', 'foot.font': 'Font licence', 'foot.made': 'Made by hand, one frame at a time',
+    'toast.title': 'Download started: 2 files', 'toast.text': 'If your browser asks to allow multiple downloads, allow it.',
   },
   fr: {
     'nav.features': 'Fonctions', 'nav.how': 'Comment ça marche', 'nav.screens': 'Écrans', 'nav.download': 'Télécharger', 'cta.download': 'Télécharger', 'lang.label': 'Langue',
@@ -106,7 +116,7 @@ const TEXT = {
     'hero.lead': "ONE BY ONE transforme une vidéo ou une séquence d'images en planches à imprimer. Vous dessinez sur papier, vous scannez, et l'application recompose l'animation. Tout sur votre ordinateur, sans internet.",
     'hero.shotAlt': "L'écran Révision de ONE BY ONE : une planche scannée avec ses quatre repères d'angle détectés",
     'dl.win': 'Télécharger pour Windows', 'dl.winMeta': 'Windows 10 et 11 · 64 bits · 108 Mo', 'dl.mac': 'Télécharger pour macOS', 'dl.macMeta': 'Apple Silicon et Intel · macOS 12 ou ultérieur',
-    'dl.armMeta': 'Puces M1, M2, M3, M4 · 126 Mo', 'dl.intelMeta': "Mac jusqu'en 2020 · 129 Mo", 'dl.note': 'Téléchargement gratuit depuis GitHub.', 'dl.all': 'Toutes les options ›',
+    'dl.armMeta': 'Puces M1, M2, M3, M4 · 126 Mo', 'dl.intelMeta': "Mac jusqu'en 2020 · 129 Mo", 'dl.note': "Un clic télécharge l'application et son LISEZMOI.", 'dl.all': 'Toutes les options ›',
     'statement.a': 'De la vidéo au papier.', 'statement.b': 'Du papier', 'statement.c': "à l'animation.",
     'features.kicker': 'Fonctions', 'features.title': 'Tout ce qu’il faut, rien de plus.', 'features.intro': 'L’ordinateur fait le travail fastidieux (extraire, mettre en page, reconnaître, recadrer) : votre temps va au dessin.',
     'f1.t': "Vidéo ou séquences d'images", 'f1.d': "Importez une vidéo et extrayez ses images en pleine résolution, ou partez d'une séquence d'images déjà numérotée.",
@@ -126,14 +136,14 @@ const TEXT = {
     'cap.sheet.t': 'Planche', 'cap.sheet.d': 'La planche à imprimer, avec codes QR et repères pour le réalignement automatique.',
     'cap.review.t': 'Révision', 'cap.review.d': 'Le scan avec ses quatre repères détectés et la zone de chaque image.',
     'cap.export.t': 'Exporter', 'cap.export.d': "L'animation reconstruite, prête en PNG, JPG, GIF ou MP4.",
-    'download.kicker': 'Télécharger', 'download.title': 'Télécharger ONE BY ONE.', 'download.intro': "Un clic télécharge l'application, prête à installer.",
+    'download.kicker': 'Télécharger', 'download.title': 'Télécharger ONE BY ONE.', 'download.intro': "Un clic télécharge deux fichiers : l'application et son LISEZMOI, côte à côte, sans dossier à ouvrir.",
     'win.req': 'Windows 10 ou 11 · 64 bits (Intel ou AMD)', 'win.i1': 'Double-cliquez sur « ONE.BY.ONE.Setup.2.0.exe ».', 'win.i2': "L'application s'installe toute seule, sans droits d'administrateur, et s'ouvre.", 'win.i3': 'Ensuite, vous la trouvez sur le Bureau et dans le menu Démarrer.',
     'mac.req': 'macOS 12 Monterey ou ultérieur', 'mac.chipLabel': 'Type de Mac', 'mac.chipHelp': 'Vous ne savez pas ? Menu Pomme › À propos de ce Mac : « Puce Apple M… » = Apple Silicon, « Processeur Intel » = Intel.',
     'mac.i1': 'Double-cliquez sur le zip et glissez « ONE BY ONE » dans Applications.', 'mac.i2': 'Premier lancement : Réglages Système › Confidentialité et sécurité › « Ouvrir quand même ».', 'mac.i3': "Ensuite, elle s'ouvre comme n'importe quelle application.",
-    'alt.text': 'Le téléchargement ne démarre pas ?', 'alt.link': 'Téléchargez-la depuis GitHub ›', 'note.label': 'Note',
-    'note.text': "L'application n'est pas encore signée par un certificat Microsoft ou Apple : au premier lancement, le système demande une confirmation (« Exécuter quand même » sur Windows, « Ouvrir quand même » sur Mac).",
-    'foot.font': 'Licence de la police', 'foot.made': 'Fait à la main, une image à la fois',
-    'toast.title': 'Téléchargement lancé', 'toast.text': 'Le fichier arrive depuis GitHub : vous le trouverez dans le dossier Téléchargements.',
+    'alt.single': 'Un seul fichier ?', 'alt.readme': 'LISEZMOI', 'note.label': 'Note',
+    'note.text': "L'application n'est pas encore signée par un certificat Microsoft ou Apple : au premier lancement, le système demande une confirmation (« Exécuter quand même » sur Windows, « Ouvrir quand même » sur Mac). Le LISEZMOI (en italien) explique chaque étape. Si le navigateur demande l'autorisation de télécharger plusieurs fichiers, acceptez : ce sont l'application et son LISEZMOI.",
+    'foot.readmeWin': 'LISEZMOI Windows', 'foot.readmeMac': 'LISEZMOI macOS', 'foot.font': 'Licence de la police', 'foot.made': 'Fait à la main, une image à la fois',
+    'toast.title': 'Téléchargement lancé : 2 fichiers', 'toast.text': "Si le navigateur demande l'autorisation de télécharger plusieurs fichiers, acceptez.",
   },
 };
 
@@ -159,15 +169,18 @@ const TEXT = {
   }
   document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', () => { lang = b.dataset.lang; store(lang); applyLang(); }));
 
-  /* ---------- Download ---------- */
+  /* ---------- Download: due file con un solo clic ---------- */
   const toast = document.getElementById('toast'); let toastTimer = null;
   function showToast() {
     toast.innerHTML = ''; const strong = document.createElement('strong'); strong.textContent = t('toast.title'); const span = document.createElement('span'); span.textContent = t('toast.text');
     toast.append(strong, span); toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 6500);
   }
-  function download(file) {
-    const a = document.createElement('a'); a.href = file.href; a.download = file.name;
-    document.body.append(a); a.click(); a.remove();
+  // Prima il programma (GitHub, redirect), poi il LEGGIMI quando il redirect è già diventato un download
+  function download(files) {
+    files.forEach((file, index) => setTimeout(() => {
+      const a = document.createElement('a'); a.href = file.href; a.download = file.name; a.rel = 'noopener';
+      document.body.append(a); a.click(); a.remove();
+    }, index * 1500));
     showToast();
   }
 
@@ -176,8 +189,9 @@ const TEXT = {
   function setMac(choice) {
     macChoice = choice;
     document.querySelectorAll('[data-chip]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.chip === choice)));
-    const zip = DOWNLOADS[choice];
+    const zip = DOWNLOADS[choice][0];
     document.getElementById('mac-file').textContent = zip.name; document.getElementById('mac-size').textContent = zip.size;
+    const alt = document.getElementById('mac-alt-zip'); alt.href = zip.href; alt.download = zip.name;
   }
   document.querySelectorAll('[data-chip]').forEach((b) => b.addEventListener('click', () => setMac(b.dataset.chip)));
   document.querySelectorAll('[data-download]').forEach((b) => b.addEventListener('click', () => {
