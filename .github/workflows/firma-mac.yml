@@ -1,0 +1,98 @@
+# Firma delle app Mac su un Mac di GitHub (gratuito per i repository pubblici).
+# Scarica i due zip macOS dalla Release "Download", li firma "ad-hoc" con codesign di Apple
+# (gratis, senza certificato: macOS non dice più che l'app è "danneggiata", si apre con
+# "Apri comunque"), controlla le firme, prova ad avviare l'app e restituisce i due zip firmati.
+# La Release non viene toccata: gli zip firmati si scaricano dalla pagina di questa esecuzione
+# (Actions > Firma app Mac > Artifacts) e si caricano a mano al posto dei vecchi.
+name: Firma app Mac
+
+on:
+  workflow_dispatch:
+    inputs:
+      versione:
+        description: Versione nei nomi dei file (es. 2.0)
+        default: '2.0'
+  push:
+    branches: [main]
+    paths: ['.github/workflows/firma-mac.yml']
+
+permissions:
+  contents: read
+
+env:
+  VERSIONE: ${{ inputs.versione || '2.0' }}
+
+jobs:
+  firma:
+    runs-on: macos-latest
+    steps:
+      - name: Scarica gli zip dalla Release
+        run: |
+          set -euo pipefail
+          for arch in Apple.Silicon Intel; do
+            curl -fsSL -o "originale-$arch.zip" "https://github.com/$GITHUB_REPOSITORY/releases/download/Download/ONE.BY.ONE.$VERSIONE.macOS.$arch.zip"
+          done
+          ls -l originale-*.zip
+
+      - name: Firma ad-hoc
+        run: |
+          set -euo pipefail
+          for arch in Apple.Silicon Intel; do
+            mkdir -p "lavoro/$arch"
+            ditto -x -k "originale-$arch.zip" "lavoro/$arch"
+            xattr -cr "lavoro/$arch"
+            codesign --force --deep --sign - "lavoro/$arch/ONE BY ONE.app"
+            codesign --verify --deep --strict --verbose=2 "lavoro/$arch/ONE BY ONE.app"
+          done
+
+      - name: Ricrea gli zip (app + LEGGIMI, collegamenti conservati)
+        run: |
+          set -euo pipefail
+          mkdir firmati
+          for arch in Apple.Silicon Intel; do
+            (cd "lavoro/$arch" && zip -qry "$GITHUB_WORKSPACE/firmati/ONE.BY.ONE.$VERSIONE.macOS.$arch.zip" "ONE BY ONE.app" LEGGIMI.txt)
+          done
+          ls -l firmati
+
+      - name: Controlla gli zip firmati come li riceverà chi scarica
+        run: |
+          set -euo pipefail
+          for arch in Apple.Silicon Intel; do
+            mkdir -p "verifica/$arch"
+            ditto -x -k "firmati/ONE.BY.ONE.$VERSIONE.macOS.$arch.zip" "verifica/$arch"
+            app="verifica/$arch/ONE BY ONE.app"
+            codesign --verify --deep --strict --verbose=2 "$app"
+            links=$(find "verifica/$arch" -type l | wc -l | tr -d ' ')
+            [ "$links" = "14" ] || { echo "::error title=$arch::collegamenti $links invece di 14"; exit 1; }
+            sig=$(codesign -dv "$app" 2>&1 | grep -E '^(Identifier|Signature)=' | tr '\n' ' ')
+            echo "::notice title=Firma $arch::valida · collegamenti 14/14 · $sig"
+          done
+
+      - name: Prova di avvio su macOS
+        run: |
+          set -o pipefail
+          prova() {
+            local arch="$1"; shift
+            export OBO_TEST_ROOT="$RUNNER_TEMP/obo-test-$arch"
+            "$@" "verifica/$arch/ONE BY ONE.app/Contents/MacOS/Electron" > "avvio-$arch.log" 2>&1 &
+            local pid=$!
+            sleep 25
+            if kill -0 "$pid" 2>/dev/null; then
+              local helpers; helpers=$(pgrep -f "Electron Helper" | wc -l | tr -d ' ')
+              echo "::notice title=Avvio $arch::ONE BY ONE si è aperta ed è rimasta aperta 25 secondi (processi di supporto: $helpers)"
+              kill "$pid"; sleep 2; pkill -f "verifica/$arch" || true
+            else
+              wait "$pid"; echo "::error title=Avvio $arch::l'app si è chiusa (codice $?)"; cat "avvio-$arch.log"; return 1
+            fi
+          }
+          prova Apple.Silicon
+          if arch -x86_64 /usr/bin/true 2>/dev/null; then prova Intel arch -x86_64
+          else echo "::notice title=Avvio Intel::Rosetta non disponibile su questo Mac: controllata solo la firma"; fi
+
+      - name: Zip firmati da scaricare
+        uses: actions/upload-artifact@v4
+        with:
+          name: zip-mac-firmati-${{ env.VERSIONE }}
+          path: firmati/*.zip
+          compression-level: 0
+          retention-days: 30
