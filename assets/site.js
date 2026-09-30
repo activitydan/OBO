@@ -155,6 +155,9 @@ const TEXT = {
   let lang = LANGS.includes(read()) ? read() : (LANGS.includes(system) ? system : 'en');
   const t = (key) => TEXT[lang][key] ?? TEXT.it[key] ?? '';
 
+  // Logo, immagini e link non si possono trascinare fuori dalla pagina
+  document.addEventListener('dragstart', (e) => e.preventDefault());
+
   // Icone (Lucide, dalla cartella LIBRERIE)
   document.querySelectorAll('[data-icon]').forEach((el) => { el.innerHTML = ICONS[el.dataset.icon] || ''; });
 
