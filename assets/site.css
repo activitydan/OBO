@@ -38,7 +38,8 @@ body{
 /* grana analogica sopra al gradiente (Resource Boy Noise 010) */
 body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:url("img/grain.png") 0 0/300px 300px repeat;opacity:.07;mix-blend-mode:screen}
 body>*{position:relative;z-index:1}
-img{max-width:100%;display:block}
+img{max-width:100%;display:block;-webkit-touch-callout:none}
+img,a{-webkit-user-drag:none}
 a{color:inherit}
 button{font:inherit;color:inherit}
 ::selection{background:var(--ink);color:var(--black)}
