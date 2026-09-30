@@ -2,7 +2,7 @@ ONE BY ONE — 2.0 per Windows x64
 POLLYNE STUDIOS 2026
 
 INSTALLAZIONE
-1. Fai doppio clic su "ONE BY ONE Setup 2.0.exe".
+1. Fai doppio clic su "ONE.BY.ONE.Setup.2.0.exe".
 2. L'app si installa da sola, senza permessi di amministratore, e si apre.
 3. Da quel momento la trovi sul Desktop e nel menu Start come "ONE BY ONE".
 

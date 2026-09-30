@@ -3,8 +3,8 @@ POLLYNE STUDIOS 2026
 
 QUALE FILE SCARICARE
 Menu Apple > Informazioni su questo Mac:
-- se c'è scritto "Chip Apple M1/M2/M3/M4…" usa "ONE BY ONE 2.0 macOS Apple Silicon.zip";
-- se c'è scritto "Processore Intel" usa "ONE BY ONE 2.0 macOS Intel.zip".
+- se c'è scritto "Chip Apple M1/M2/M3/M4…" usa "ONE.BY.ONE.2.0.macOS.Apple.Silicon.zip";
+- se c'è scritto "Processore Intel" usa "ONE.BY.ONE.2.0.macOS.Intel.zip".
 
 INSTALLAZIONE
 1. Fai doppio clic sullo zip: compare "ONE BY ONE".

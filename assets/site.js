@@ -17,21 +17,24 @@ const ICONS = {
 };
 
 /* ------------------------------------------------------------------
-   File da scaricare. Per ospitarli altrove (es. GitHub Releases),
-   basta cambiare "href": il nome con cui arrivano resta "name".
+   File da scaricare. Programmi: dalla Release "Download" del repo
+   GitHub activitydan/OBO. LEGGIMI: dalla radice del sito.
+   I file della Release arrivano con il nome che hanno su GitHub
+   (spazi → punti): il browser ignora "download" per un altro dominio.
    ------------------------------------------------------------------ */
+const RELEASE = 'https://github.com/activitydan/OBO/releases/download/Download/';
 const DOWNLOADS = {
   windows: [
-    { href: 'downloads/ONE-BY-ONE-Setup-1.07.exe', name: 'ONE BY ONE Setup 1.07.exe' },
-    { href: 'downloads/LEGGIMI-Windows.txt', name: 'LEGGIMI.txt' },
+    { href: RELEASE + 'ONE.BY.ONE.Setup.2.0.exe', name: 'ONE.BY.ONE.Setup.2.0.exe' },
+    { href: 'LEGGIMI-Windows.txt', name: 'LEGGIMI.txt' },
   ],
   'mac-arm': [
-    { href: 'downloads/ONE-BY-ONE-1.07-macOS-Apple-Silicon.zip', name: 'ONE BY ONE 1.07 macOS Apple Silicon.zip', size: '126 MB' },
-    { href: 'downloads/LEGGIMI-macOS.txt', name: 'LEGGIMI.txt' },
+    { href: RELEASE + 'ONE.BY.ONE.2.0.macOS.Apple.Silicon.zip', name: 'ONE.BY.ONE.2.0.macOS.Apple.Silicon.zip', size: '126 MB' },
+    { href: 'LEGGIMI-macOS.txt', name: 'LEGGIMI.txt' },
   ],
   'mac-intel': [
-    { href: 'downloads/ONE-BY-ONE-1.07-macOS-Intel.zip', name: 'ONE BY ONE 1.07 macOS Intel.zip', size: '129 MB' },
-    { href: 'downloads/LEGGIMI-macOS.txt', name: 'LEGGIMI.txt' },
+    { href: RELEASE + 'ONE.BY.ONE.2.0.macOS.Intel.zip', name: 'ONE.BY.ONE.2.0.macOS.Intel.zip', size: '129 MB' },
+    { href: 'LEGGIMI-macOS.txt', name: 'LEGGIMI.txt' },
   ],
 };
 
@@ -39,7 +42,7 @@ const DOWNLOADS = {
 const TEXT = {
   it: {
     'nav.features': 'Funzioni', 'nav.how': 'Come funziona', 'nav.screens': 'Schermate', 'nav.download': 'Scarica', 'cta.download': 'Scarica', 'lang.label': 'Lingua',
-    'hero.kicker': 'Versione 1.07 · Windows e macOS', 'hero.title': 'Animazione disegnata a mano, un frame alla volta.',
+    'hero.kicker': 'Versione 2.0 · Windows e macOS', 'hero.title': 'Animazione disegnata a mano, un frame alla volta.',
     'hero.lead': "ONE BY ONE trasforma un video o una sequenza di immagini in fogli da stampare. Disegni sulla carta, scansioni, e l'app ricompone l'animazione. Tutto sul tuo computer, senza internet.",
     'hero.shotAlt': "La schermata Revisione di ONE BY ONE: un foglio scansionato con i quattro marcatori d'angolo riconosciuti",
     'dl.win': 'Scarica per Windows', 'dl.winMeta': 'Windows 10 e 11 · 64 bit · 108 MB', 'dl.mac': 'Scarica per macOS', 'dl.macMeta': 'Apple Silicon e Intel · macOS 12 o successivo',
@@ -64,7 +67,7 @@ const TEXT = {
     'cap.review.t': 'Revisione', 'cap.review.d': 'La scansione con i quattro marcatori riconosciuti e le aree di ogni frame.',
     'cap.export.t': 'Esporta', 'cap.export.d': "L'animazione ricostruita, pronta in PNG, JPG, GIF o MP4.",
     'download.kicker': 'Scarica', 'download.title': 'Scarica ONE BY ONE.', 'download.intro': "Un clic scarica due file: il programma e il suo LEGGIMI, uno accanto all'altro, senza cartelle da aprire.",
-    'win.req': 'Windows 10 o 11 · 64 bit (Intel o AMD)', 'win.i1': 'Doppio clic su “ONE BY ONE Setup 1.07.exe”.', 'win.i2': "L'app si installa da sola, senza permessi di amministratore, e si apre.", 'win.i3': 'Da quel momento la trovi sul Desktop e nel menu Start.',
+    'win.req': 'Windows 10 o 11 · 64 bit (Intel o AMD)', 'win.i1': 'Doppio clic su “ONE.BY.ONE.Setup.2.0.exe”.', 'win.i2': "L'app si installa da sola, senza permessi di amministratore, e si apre.", 'win.i3': 'Da quel momento la trovi sul Desktop e nel menu Start.',
     'mac.req': 'macOS 12 Monterey o successivo', 'mac.chipLabel': 'Tipo di Mac', 'mac.chipHelp': 'Non sai quale? Menu Apple › Informazioni su questo Mac: “Chip Apple M…” è Apple Silicon, “Processore Intel” è Intel.',
     'mac.i1': 'Doppio clic sullo zip e trascina “ONE BY ONE” in Applicazioni.', 'mac.i2': 'Primo avvio: Impostazioni di Sistema › Privacy e sicurezza › “Apri comunque”.', 'mac.i3': 'Da quel momento si apre come qualsiasi altra app.',
     'alt.single': 'Solo un file?', 'alt.readme': 'LEGGIMI', 'note.label': 'Nota',
@@ -74,7 +77,7 @@ const TEXT = {
   },
   en: {
     'nav.features': 'Features', 'nav.how': 'How it works', 'nav.screens': 'Screens', 'nav.download': 'Download', 'cta.download': 'Download', 'lang.label': 'Language',
-    'hero.kicker': 'Version 1.07 · Windows and macOS', 'hero.title': 'Hand-drawn animation, one frame at a time.',
+    'hero.kicker': 'Version 2.0 · Windows and macOS', 'hero.title': 'Hand-drawn animation, one frame at a time.',
     'hero.lead': 'ONE BY ONE turns a video or an image sequence into sheets ready to print. You draw on paper, you scan, and the app puts the animation back together. All on your computer, no internet needed.',
     'hero.shotAlt': 'The ONE BY ONE Review screen: a scanned sheet with its four corner markers detected',
     'dl.win': 'Download for Windows', 'dl.winMeta': 'Windows 10 and 11 · 64-bit · 108 MB', 'dl.mac': 'Download for macOS', 'dl.macMeta': 'Apple Silicon and Intel · macOS 12 or later',
@@ -99,7 +102,7 @@ const TEXT = {
     'cap.review.t': 'Review', 'cap.review.d': 'The scan with its four markers detected and the area of each frame.',
     'cap.export.t': 'Export', 'cap.export.d': 'The rebuilt animation, ready as PNG, JPG, GIF or MP4.',
     'download.kicker': 'Download', 'download.title': 'Download ONE BY ONE.', 'download.intro': 'One click downloads two files: the app and its README, side by side, with no folders to open.',
-    'win.req': 'Windows 10 or 11 · 64-bit (Intel or AMD)', 'win.i1': 'Double-click “ONE BY ONE Setup 1.07.exe”.', 'win.i2': 'The app installs itself, with no administrator rights, and opens.', 'win.i3': 'From then on you find it on the Desktop and in the Start menu.',
+    'win.req': 'Windows 10 or 11 · 64-bit (Intel or AMD)', 'win.i1': 'Double-click “ONE.BY.ONE.Setup.2.0.exe”.', 'win.i2': 'The app installs itself, with no administrator rights, and opens.', 'win.i3': 'From then on you find it on the Desktop and in the Start menu.',
     'mac.req': 'macOS 12 Monterey or later', 'mac.chipLabel': 'Type of Mac', 'mac.chipHelp': 'Not sure which? Apple menu › About This Mac: “Apple M… chip” means Apple Silicon, “Intel processor” means Intel.',
     'mac.i1': 'Double-click the zip and drag “ONE BY ONE” into Applications.', 'mac.i2': 'First launch: System Settings › Privacy & Security › “Open Anyway”.', 'mac.i3': 'From then on it opens like any other app.',
     'alt.single': 'Just one file?', 'alt.readme': 'README', 'note.label': 'Note',
@@ -109,7 +112,7 @@ const TEXT = {
   },
   fr: {
     'nav.features': 'Fonctions', 'nav.how': 'Comment ça marche', 'nav.screens': 'Écrans', 'nav.download': 'Télécharger', 'cta.download': 'Télécharger', 'lang.label': 'Langue',
-    'hero.kicker': 'Version 1.07 · Windows et macOS', 'hero.title': 'Animation dessinée à la main, une image à la fois.',
+    'hero.kicker': 'Version 2.0 · Windows et macOS', 'hero.title': 'Animation dessinée à la main, une image à la fois.',
     'hero.lead': "ONE BY ONE transforme une vidéo ou une séquence d'images en planches à imprimer. Vous dessinez sur papier, vous scannez, et l'application recompose l'animation. Tout sur votre ordinateur, sans internet.",
     'hero.shotAlt': "L'écran Révision de ONE BY ONE : une planche scannée avec ses quatre repères d'angle détectés",
     'dl.win': 'Télécharger pour Windows', 'dl.winMeta': 'Windows 10 et 11 · 64 bits · 108 Mo', 'dl.mac': 'Télécharger pour macOS', 'dl.macMeta': 'Apple Silicon et Intel · macOS 12 ou ultérieur',
@@ -134,7 +137,7 @@ const TEXT = {
     'cap.review.t': 'Révision', 'cap.review.d': 'Le scan avec ses quatre repères détectés et la zone de chaque image.',
     'cap.export.t': 'Exporter', 'cap.export.d': "L'animation reconstruite, prête en PNG, JPG, GIF ou MP4.",
     'download.kicker': 'Télécharger', 'download.title': 'Télécharger ONE BY ONE.', 'download.intro': "Un clic télécharge deux fichiers : l'application et son LISEZMOI, côte à côte, sans dossier à ouvrir.",
-    'win.req': 'Windows 10 ou 11 · 64 bits (Intel ou AMD)', 'win.i1': 'Double-cliquez sur « ONE BY ONE Setup 1.07.exe ».', 'win.i2': "L'application s'installe toute seule, sans droits d'administrateur, et s'ouvre.", 'win.i3': 'Ensuite, vous la trouvez sur le Bureau et dans le menu Démarrer.',
+    'win.req': 'Windows 10 ou 11 · 64 bits (Intel ou AMD)', 'win.i1': 'Double-cliquez sur « ONE.BY.ONE.Setup.2.0.exe ».', 'win.i2': "L'application s'installe toute seule, sans droits d'administrateur, et s'ouvre.", 'win.i3': 'Ensuite, vous la trouvez sur le Bureau et dans le menu Démarrer.',
     'mac.req': 'macOS 12 Monterey ou ultérieur', 'mac.chipLabel': 'Type de Mac', 'mac.chipHelp': 'Vous ne savez pas ? Menu Pomme › À propos de ce Mac : « Puce Apple M… » = Apple Silicon, « Processeur Intel » = Intel.',
     'mac.i1': 'Double-cliquez sur le zip et glissez « ONE BY ONE » dans Applications.', 'mac.i2': 'Premier lancement : Réglages Système › Confidentialité et sécurité › « Ouvrir quand même ».', 'mac.i3': "Ensuite, elle s'ouvre comme n'importe quelle application.",
     'alt.single': 'Un seul fichier ?', 'alt.readme': 'LISEZMOI', 'note.label': 'Note',
