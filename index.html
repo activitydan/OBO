@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONE BY ONE — Animazione a mano, un frame alla volta</title>
+  <meta name="description" content="ONE BY ONE trasforma un video o una sequenza di immagini in fogli da stampare. Disegni sulla carta, scansioni, e l'app ricompone l'animazione. Per Windows e macOS, gratis e offline.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="ONE BY ONE — Animazione a mano, un frame alla volta">
+  <meta property="og:description" content="Dal video alla carta, dalla carta all'animazione. Per Windows e macOS.">
+  <meta property="og:image" content="assets/img/screens/sheet-1440.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/app-icon-256.png">
+  <link rel="preload" href="assets/fonts/archivo-narrow-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ONE BY ONE"><img src="assets/img/onebyone-wordmark-white.png" alt="OneByOne" width="87" height="26"></a>
+    <nav class="nav" aria-label="Sezioni">
+      <a href="#funzioni" data-i18n="nav.features">Funzioni</a>
+      <a href="#come-funziona" data-i18n="nav.how">Come funziona</a>
+      <a href="#schermate" data-i18n="nav.screens">Schermate</a>
+      <a href="#download" data-i18n="nav.download">Scarica</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Lingua" data-i18n-attr="aria-label:lang.label">
+      <button type="button" data-lang="it" aria-pressed="true" title="Italiano">IT</button>
+      <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+      <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
+    </div>
+    <a class="btn header-cta" href="#download"><span data-i18n="cta.download">Scarica</span> <span class="gt">›</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Apertura: logo grande + due pulsanti, come l'ispirazione -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="reveal">
+          <p class="kicker"><span>Pollyne Studios</span><span class="sep"></span><span data-i18n="hero.kicker">Versione 1.07 · Windows e macOS</span></p>
+          <img class="hero-wordmark" src="assets/img/onebyone-wordmark-white.png" alt="" width="1703" height="508">
+          <h1 data-i18n="hero.title">Animazione disegnata a mano, un frame alla volta.</h1>
+          <p class="lead" data-i18n="hero.lead">ONE BY ONE trasforma un video o una sequenza di immagini in fogli da stampare. Disegni sulla carta, scansioni, e l'app ricompone l'animazione. Tutto sul tuo computer, senza internet.</p>
+        </div>
+
+        <div class="downloads reveal" id="hero-downloads">
+          <button type="button" class="dl" data-download="windows">
+            <span class="dl-icon icon" data-icon="app-window"></span>
+            <span><strong data-i18n="dl.win">Scarica per Windows</strong><small data-i18n="dl.winMeta">Windows 10 e 11 · 64 bit · 108 MB</small></span>
+            <span class="dl-arrow icon" data-icon="download"></span>
+          </button>
+          <button type="button" class="dl" data-mac-toggle aria-expanded="false" aria-controls="mac-choice">
+            <span class="dl-icon icon" data-icon="command"></span>
+            <span><strong data-i18n="dl.mac">Scarica per macOS</strong><small data-i18n="dl.macMeta">Apple Silicon e Intel · macOS 12 o successivo</small></span>
+            <span class="dl-arrow icon" data-icon="chevron-right"></span>
+          </button>
+          <div class="mac-choice" id="mac-choice">
+            <button type="button" data-download="mac-arm"><strong>Apple Silicon</strong><small data-i18n="dl.armMeta">Chip M1, M2, M3, M4 · 126 MB</small></button>
+            <button type="button" data-download="mac-intel"><strong>Intel</strong><small data-i18n="dl.intelMeta">Mac fino al 2020 · 129 MB</small></button>
+          </div>
+          <p class="dl-note"><span data-i18n="dl.note">Un clic scarica il programma e il suo LEGGIMI.</span> <a href="#download" data-i18n="dl.all">Tutte le opzioni ›</a></p>
+        </div>
+      </div>
+
+      <figure class="hero-shot reveal">
+        <span class="reg tl" aria-hidden="true"></span><span class="reg tr" aria-hidden="true"></span><span class="reg bl" aria-hidden="true"></span><span class="reg br" aria-hidden="true"></span>
+        <div class="frame">
+          <img src="assets/img/screens/review-1440.webp" srcset="assets/img/screens/review-1440.webp 1440w, assets/img/screens/review-2880.webp 2880w" sizes="(max-width:1248px) 100vw, 1200px" alt="La schermata Revisione di ONE BY ONE: un foglio scansionato con i quattro marcatori d'angolo riconosciuti" data-i18n-attr="alt:hero.shotAlt" width="1440" height="900">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Frase centrale -->
+  <section class="statement">
+    <div class="wrap reveal">
+      <p><span data-i18n="statement.a">Dal video alla carta.</span><br><span class="m" data-i18n="statement.b">Dalla carta</span> <span data-i18n="statement.c">all'animazione.</span></p>
+      <div class="rule"></div>
+    </div>
+  </section>
+
+  <!-- Funzioni -->
+  <section class="section" id="funzioni">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker"><span class="num">01</span><span class="sep"></span><span data-i18n="features.kicker">Funzioni</span></p>
+          <h2 data-i18n="features.title">Tutto quello che serve, niente di più.</h2>
+        </div>
+        <p data-i18n="features.intro">Il digitale fa il lavoro noioso (estrarre, impaginare, riconoscere, ritagliare), così il tempo resta per disegnare.</p>
+      </div>
+      <div class="features">
+        <article class="feature reveal"><span class="icon" data-icon="film"></span><div><h3 data-i18n="f1.t">Video o sequenze di immagini</h3><p data-i18n="f1.d">Importa un video ed estrai i frame alla risoluzione originale, oppure parti da una sequenza di immagini già numerata.</p></div></article>
+        <article class="feature reveal"><span class="icon" data-icon="printer"></span><div><h3 data-i18n="f2.t">Fogli pronti da stampare</h3><p data-i18n="f2.d">Impagina i frame su A4 o A3, in orizzontale o in verticale, con numeri e margini puliti. Un PDF, pronto per la stampante.</p></div></article>
+        <article class="feature reveal"><span class="icon" data-icon="pencil-line"></span><div><h3 data-i18n="f3.t">Disegni tu, a mano</h3><p data-i18n="f3.d">Ridisegna ogni frame sulla carta con i tuoi strumenti: matita, china, acquerello. L'app non tocca il tuo segno.</p></div></article>
+        <article class="feature reveal"><span class="icon" data-icon="scan-line"></span><div><h3 data-i18n="f4.t">Scansioni che si riconoscono</h3><p data-i18n="f4.d">Ogni foglio porta i suoi codici QR: l'app sa a quale progetto appartiene e in che ordine va, anche da un PDF di molte pagine.</p></div></article>
+        <article class="feature reveal"><span class="icon" data-icon="crosshair"></span><div><h3 data-i18n="f5.t">Allineamento a quattro angoli</h3><p data-i18n="f5.d">Quattro marcatori stampati correggono prospettiva e rotazione: ogni frame viene ritagliato esattamente dove l'hai disegnato.</p></div></article>
+        <article class="feature reveal"><span class="icon" data-icon="clapperboard"></span><div><h3 data-i18n="f6.t">Export per ogni uso</h3><p data-i18n="f6.d">Sequenza PNG o JPG, GIF animata o video MP4, fino al 4K. Il bordo di carta naturale, se lo vuoi, resta.</p></div></article>
+      </div>
+      <div class="badges reveal">
+        <span class="badge"><span class="icon" data-icon="wifi-off"></span><span data-i18n="badge.offline">Funziona senza internet</span></span>
+        <span class="badge"><span class="icon" data-icon="languages"></span><span>Italiano · English · Français</span></span>
+        <span class="badge"><span class="icon" data-icon="check"></span><span data-i18n="badge.account">Nessun account, nessun abbonamento</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Come funziona: gli stessi sei passaggi dell'app -->
+  <section class="section how" id="come-funziona">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker"><span class="num">02</span><span class="sep"></span><span data-i18n="how.kicker">Come funziona</span></p>
+          <h2 data-i18n="how.title">Sei passaggi, sempre nello stesso ordine.</h2>
+        </div>
+        <p data-i18n="how.intro">Gli stessi che trovi in alto nell'app. Puoi tornare indietro in ogni momento: il progetto si salva da solo.</p>
+      </div>
+      <ol class="steps reveal">
+        <li class="step"><span class="n">01</span><h3 data-i18n="s1.t">Importa</h3><p data-i18n="s1.d">Scegli il video o le immagini di partenza.</p></li>
+        <li class="step"><span class="n">02</span><h3 data-i18n="s2.t">Frame</h3><p data-i18n="s2.d">Decidi quanti frame estrarre e guarda l'anteprima.</p></li>
+        <li class="step"><span class="n">03</span><h3 data-i18n="s3.t">Foglio</h3><p data-i18n="s3.d">Scarica il PDF e stampalo.</p></li>
+        <li class="step"><span class="n">04</span><h3 data-i18n="s4.t">Scansioni</h3><p data-i18n="s4.d">Disegna, scansiona e importa i fogli.</p></li>
+        <li class="step"><span class="n">05</span><h3 data-i18n="s5.t">Revisione</h3><p data-i18n="s5.d">Controlla i marcatori e ricostruisci i frame.</p></li>
+        <li class="step"><span class="n">06</span><h3 data-i18n="s6.t">Esporta</h3><p data-i18n="s6.d">Scegli il formato e salva l'animazione.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Schermate -->
+  <section class="section gallery" id="schermate">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker"><span class="num">03</span><span class="sep"></span><span data-i18n="screens.kicker">Schermate</span></p>
+          <h2 data-i18n="screens.title">L'app, così com'è.</h2>
+        </div>
+        <p data-i18n="screens.intro">Schermate reali, con un progetto di prova: una palla che rimbalza in dodici disegni.</p>
+      </div>
+      <div class="tabs reveal" role="tablist" aria-label="Schermate">
+        <button type="button" role="tab" aria-selected="true" data-shot="home" data-i18n="tab.home">Libreria</button>
+        <button type="button" role="tab" aria-selected="false" data-shot="import" data-i18n="s1.t">Importa</button>
+        <button type="button" role="tab" aria-selected="false" data-shot="frames" data-i18n="s2.t">Frame</button>
+        <button type="button" role="tab" aria-selected="false" data-shot="sheet" data-i18n="s3.t">Foglio</button>
+        <button type="button" role="tab" aria-selected="false" data-shot="review" data-i18n="s5.t">Revisione</button>
+        <button type="button" role="tab" aria-selected="false" data-shot="export" data-i18n="s6.t">Esporta</button>
+      </div>
+      <figure class="reveal" style="margin:0">
+        <div class="frame"><img id="gallery-img" src="assets/img/screens/home-1440.webp" srcset="assets/img/screens/home-1440.webp 1440w, assets/img/screens/home-2880.webp 2880w" sizes="(max-width:1248px) 100vw, 1200px" alt="" width="1440" height="900"></div>
+        <figcaption class="caption"><strong id="gallery-title" data-i18n="cap.home.t">Libreria progetti</strong><span id="gallery-text" data-i18n="cap.home.d">Ogni progetto con il suo colore, le etichette e il punto in cui l'hai lasciato.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="section" id="download">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker"><span class="num">04</span><span class="sep"></span><span data-i18n="download.kicker">Scarica</span></p>
+          <h2 data-i18n="download.title">Scarica ONE BY ONE.</h2>
+        </div>
+        <p data-i18n="download.intro">Un clic scarica due file: il programma e il suo LEGGIMI, uno accanto all'altro, senza cartelle da aprire.</p>
+      </div>
+
+      <div class="dl-cards">
+        <article class="card reveal" id="card-windows">
+          <div class="card-top">
+            <div><h3>Windows</h3><p class="req" data-i18n="win.req">Windows 10 o 11 · 64 bit (Intel o AMD)</p></div>
+            <span class="os-icon icon" data-icon="app-window"></span>
+          </div>
+          <ul class="files" aria-label="File scaricati">
+            <li><span class="file-name"><span class="icon" data-icon="download"></span>ONE BY ONE Setup 1.07.exe</span><span>108 MB</span></li>
+            <li><span class="file-name"><span class="icon" data-icon="file-text"></span>LEGGIMI.txt</span><span>3 KB</span></li>
+          </ul>
+          <ol class="install">
+            <li data-i18n="win.i1">Doppio clic su “ONE BY ONE Setup 1.07.exe”.</li>
+            <li data-i18n="win.i2">L'app si installa da sola, senza permessi di amministratore, e si apre.</li>
+            <li data-i18n="win.i3">Da quel momento la trovi sul Desktop e nel menu Start.</li>
+          </ol>
+          <button type="button" class="btn" data-download="windows"><span class="icon" data-icon="download"></span><span data-i18n="dl.win">Scarica per Windows</span></button>
+          <p class="alt"><span data-i18n="alt.single">Solo un file?</span> <a href="downloads/ONE-BY-ONE-Setup-1.07.exe" download="ONE BY ONE Setup 1.07.exe">Setup</a> · <a href="downloads/LEGGIMI-Windows.txt" download="LEGGIMI.txt" data-i18n="alt.readme">LEGGIMI</a></p>
+        </article>
+
+        <article class="card reveal" id="card-mac">
+          <div class="card-top">
+            <div><h3>macOS</h3><p class="req" data-i18n="mac.req">macOS 12 Monterey o successivo</p></div>
+            <span class="os-icon icon" data-icon="command"></span>
+          </div>
+          <div class="chip" role="group" aria-label="Tipo di Mac" data-i18n-attr="aria-label:mac.chipLabel">
+            <button type="button" data-chip="mac-arm" aria-pressed="true">Apple Silicon</button>
+            <button type="button" data-chip="mac-intel" aria-pressed="false">Intel</button>
+          </div>
+          <p class="chip-help" data-i18n="mac.chipHelp">Non sai quale? Menu Apple › Informazioni su questo Mac: “Chip Apple M…” è Apple Silicon, “Processore Intel” è Intel.</p>
+          <ul class="files" aria-label="File scaricati">
+            <li><span class="file-name"><span class="icon" data-icon="download"></span><span id="mac-file">ONE BY ONE 1.07 macOS Apple Silicon.zip</span></span><span id="mac-size">126 MB</span></li>
+            <li><span class="file-name"><span class="icon" data-icon="file-text"></span>LEGGIMI.txt</span><span>3 KB</span></li>
+          </ul>
+          <ol class="install">
+            <li data-i18n="mac.i1">Doppio clic sullo zip e trascina “ONE BY ONE” in Applicazioni.</li>
+            <li data-i18n="mac.i2">Primo avvio: Impostazioni di Sistema › Privacy e sicurezza › “Apri comunque”.</li>
+            <li data-i18n="mac.i3">Da quel momento si apre come qualsiasi altra app.</li>
+          </ol>
+          <button type="button" class="btn" data-download="mac-selected"><span class="icon" data-icon="download"></span><span data-i18n="dl.mac">Scarica per macOS</span></button>
+          <p class="alt"><span data-i18n="alt.single">Solo un file?</span> <a id="mac-alt-zip" href="downloads/ONE-BY-ONE-1.07-macOS-Apple-Silicon.zip" download="ONE BY ONE 1.07 macOS Apple Silicon.zip">Zip</a> · <a href="downloads/LEGGIMI-macOS.txt" download="LEGGIMI.txt" data-i18n="alt.readme">LEGGIMI</a></p>
+        </article>
+      </div>
+
+      <div class="note reveal">
+        <span class="label"><span data-i18n="note.label">Nota</span> <span class="gt">›</span></span>
+        <p data-i18n="note.text">L'app non è ancora firmata con un certificato Microsoft o Apple, quindi al primo avvio il sistema chiede una conferma (“Esegui comunque” su Windows, “Apri comunque” su Mac). Il LEGGIMI spiega ogni passaggio. Se il browser chiede il permesso di scaricare più file, consenti: sono il programma e il suo LEGGIMI.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ONE BY ONE"><img src="assets/img/onebyone-wordmark-white.png" alt="OneByOne" width="100" height="30"></a>
+    <nav class="footer-links" aria-label="Link">
+      <a href="#download" data-i18n="nav.download">Scarica</a>
+      <a href="downloads/LEGGIMI-Windows.txt" data-i18n="foot.readmeWin">LEGGIMI Windows</a>
+      <a href="downloads/LEGGIMI-macOS.txt" data-i18n="foot.readmeMac">LEGGIMI macOS</a>
+      <a href="assets/fonts/ArchivoNarrow-OFL.txt" data-i18n="foot.font">Licenza del font</a>
+    </nav>
+    <div class="footer-meta">
+      <span>Pollyne Studios © 2026</span>
+      <span class="mark"><i aria-hidden="true"></i><span data-i18n="foot.made">Fatto a mano, un frame alla volta</span></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
