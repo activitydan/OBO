@@ -60,7 +60,7 @@ button{font:inherit;color:inherit}
 .brand{display:flex;align-items:center;flex:none}
 .brand img{height:26px;width:auto}
 .nav{display:flex;gap:26px;margin-left:auto}
-.nav a{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.12em;text-decoration:none;text-transform:uppercase;transition:color 120ms linear}
+.nav a{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.12em;text-decoration:none;text-transform:uppercase;white-space:nowrap;transition:color 120ms linear}
 .nav a:hover{color:var(--ink)}
 .lang{display:inline-flex;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .lang button{min-width:36px;height:32px;padding:0 9px;border:0;border-left:1px solid var(--line);background:transparent;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background-color 120ms linear,color 120ms linear}
@@ -175,6 +175,13 @@ button{font:inherit;color:inherit}
 .card .alt{margin:-10px 0 0;color:var(--faint);font-size:12px}
 .card .alt a{color:var(--muted)}
 
+/* Supportaci */
+.support-card{flex-direction:row;align-items:center;justify-content:space-between;gap:24px 48px}
+.support-points{display:grid;gap:10px;margin:18px 0 0;padding:0;list-style:none}
+.support-points li{display:flex;gap:10px;color:var(--muted);font-size:15px}
+.support-points .icon{flex:none;width:16px;height:16px;margin-top:3px;color:var(--ink)}
+.support-card .btn{align-self:center;flex:none;padding:12px 28px}
+
 /* Riquadro nota con filo sottile, come i "TESI STRATEGICA >" di TENSEGRITAS */
 .note{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin-top:16px;padding:18px 22px;border:1px solid var(--line);border-left:2px solid var(--ink);border-radius:var(--radius);background:rgba(20,20,20,.7)}
 .note .label{color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;padding-top:3px}
@@ -201,6 +208,11 @@ button{font:inherit;color:inherit}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- Schermi più stretti ---------- */
+/* Il menu in alto (5 voci, in francese le più lunghe) sta su una riga solo da ~1080px */
+@media (max-width:1080px){
+  .nav{display:none}
+  .site-header .lang{margin-left:auto}
+}
 @media (max-width:1000px){
   .hero-grid{grid-template-columns:1fr;align-items:start}
   .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -226,6 +238,8 @@ button{font:inherit;color:inherit}
   .step:nth-child(n+3){border-top:1px solid var(--line-soft)}
   .dl-cards{grid-template-columns:1fr}
   .card{padding:24px}
+  .support-card{flex-direction:column;align-items:flex-start}
+  .support-card .btn{align-self:flex-start}
   .site-footer .wrap{grid-template-columns:1fr}
   .footer-links{justify-content:flex-start}
   .tabs{width:100%}

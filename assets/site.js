@@ -13,6 +13,7 @@ const ICONS = {
   "languages": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 8 6 6\"/><path d=\"m4 14 6-6 2-3\"/><path d=\"M2 5h12\"/><path d=\"M7 2h1\"/><path d=\"m22 22-5-10-5 10\"/><path d=\"M14 18h6\"/></svg>",
   "file-text": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"/><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"/><path d=\"M10 9H8\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/></svg>",
   "check": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>",
+  "heart": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5\"/></svg>",
   "chevron-right": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg>"
 };
 
@@ -23,6 +24,8 @@ const ICONS = {
    (spazi → punti): il browser ignora "download" per un altro dominio.
    ------------------------------------------------------------------ */
 const RELEASE = 'https://github.com/activitydan/OBO/releases/download/Download/';
+/* Donazioni: Payment Link di Stripe (importo libero). Solo il link pubblico, nessuna chiave. */
+const SUPPORT_LINK = '';
 const DOWNLOADS = {
   windows: [
     { href: RELEASE + 'ONE.BY.ONE.Setup.2.0.exe', name: 'ONE.BY.ONE.Setup.2.0.exe' },
@@ -73,6 +76,10 @@ const TEXT = {
     'alt.single': 'Solo un file?', 'alt.readme': 'README', 'note.label': 'Nota',
     'note.text': "L'app non è ancora firmata con un certificato Microsoft o Apple, quindi al primo avvio il sistema chiede una conferma (“Esegui comunque” su Windows, “Apri comunque” su Mac). Il README spiega ogni passaggio, in italiano, inglese e francese. Se il browser chiede il permesso di scaricare più file, consenti: sono il programma e il suo README.",
     'foot.readmeWin': 'README Windows', 'foot.readmeMac': 'README macOS', 'foot.font': 'Licenza del font', 'foot.made': 'Fatto a mano, un frame alla volta',
+    'nav.support': 'Supportaci', 'support.kicker': 'Supportaci', 'support.title': 'Sostieni ONE BY ONE.',
+    'support.intro': "ONE BY ONE è gratuito, senza pubblicità né abbonamenti. Se ti è utile, puoi aiutarci a farlo crescere con una donazione libera, di qualsiasi importo.",
+    'support.card': "L'importo lo scegli tu.", 'support.p1': 'Paghi con carta, Apple Pay o Google Pay, in pochi secondi.', 'support.p2': 'Nessun account da creare.',
+    'support.p3': 'Pagamento sicuro su Stripe: i dati della carta non passano da noi.', 'support.cta': 'Sostienici',
     'toast.title': 'Download avviato: 2 file', 'toast.text': 'Se il browser chiede il permesso di scaricare più file, consenti.',
   },
   en: {
@@ -108,6 +115,10 @@ const TEXT = {
     'alt.single': 'Just one file?', 'alt.readme': 'README', 'note.label': 'Note',
     'note.text': 'The app is not yet signed with a Microsoft or Apple certificate, so on first launch the system asks for confirmation (“Run anyway” on Windows, “Open Anyway” on Mac). The README walks you through it, in English, Italian and French. If your browser asks to allow multiple downloads, allow it: they are the app and its README.',
     'foot.readmeWin': 'README Windows', 'foot.readmeMac': 'README macOS', 'foot.font': 'Font licence', 'foot.made': 'Made by hand, one frame at a time',
+    'nav.support': 'Support us', 'support.kicker': 'Support us', 'support.title': 'Support ONE BY ONE.',
+    'support.intro': 'ONE BY ONE is free, with no ads and no subscriptions. If you find it useful, you can help it grow with a donation of any amount.',
+    'support.card': 'You choose the amount.', 'support.p1': 'Pay by card, Apple Pay or Google Pay in a few seconds.', 'support.p2': 'No account needed.',
+    'support.p3': 'Secure payment on Stripe: your card details never reach us.', 'support.cta': 'Support us',
     'toast.title': 'Download started: 2 files', 'toast.text': 'If your browser asks to allow multiple downloads, allow it.',
   },
   fr: {
@@ -143,6 +154,10 @@ const TEXT = {
     'alt.single': 'Un seul fichier ?', 'alt.readme': 'README', 'note.label': 'Note',
     'note.text': "L'application n'est pas encore signée par un certificat Microsoft ou Apple : au premier lancement, le système demande une confirmation (« Exécuter quand même » sur Windows, « Ouvrir quand même » sur Mac). Le README explique chaque étape, en français, italien et anglais. Si le navigateur demande l'autorisation de télécharger plusieurs fichiers, acceptez : ce sont l'application et son README.",
     'foot.readmeWin': 'README Windows', 'foot.readmeMac': 'README macOS', 'foot.font': 'Licence de la police', 'foot.made': 'Fait à la main, une image à la fois',
+    'nav.support': 'Nous soutenir', 'support.kicker': 'Nous soutenir', 'support.title': 'Soutenez ONE BY ONE.',
+    'support.intro': "ONE BY ONE est gratuit, sans publicité ni abonnement. S'il vous est utile, vous pouvez l'aider à grandir par un don du montant de votre choix.",
+    'support.card': 'Le montant, c’est vous qui le choisissez.', 'support.p1': 'Payez par carte, Apple Pay ou Google Pay en quelques secondes.', 'support.p2': 'Aucun compte à créer.',
+    'support.p3': 'Paiement sécurisé sur Stripe : vos données bancaires ne passent pas par nous.', 'support.cta': 'Nous soutenir',
     'toast.title': 'Téléchargement lancé : 2 fichiers', 'toast.text': "Si le navigateur demande l'autorisation de télécharger plusieurs fichiers, acceptez.",
   },
 };
@@ -212,6 +227,10 @@ const TEXT = {
   if (isMac) { macToggle.classList.add('primary'); winButton.parentElement.insertBefore(macToggle, winButton); macToggle.after(macPanel); }
   else winButton.classList.add('primary');
   navigator.userAgentData?.getHighEntropyValues?.(['architecture']).then((v) => { if (v.architecture === 'x86') setMac('mac-intel'); }).catch(() => {});
+
+  /* ---------- Supportaci ---------- */
+  const supportLink = document.getElementById('support-link');
+  if (SUPPORT_LINK) supportLink.href = SUPPORT_LINK;
 
   /* ---------- Galleria ---------- */
   const galleryImg = document.getElementById('gallery-img'); let shot = 'home';
