@@ -1,0 +1,54 @@
+﻿ONE BY ONE — 1.07 per Windows x64
+POLLYNE STUDIOS 2026
+
+INSTALLAZIONE
+1. Fai doppio clic su "ONE BY ONE Setup 1.07.exe".
+2. L'app si installa da sola, senza permessi di amministratore, e si apre.
+3. Da quel momento la trovi sul Desktop e nel menu Start come "ONE BY ONE".
+
+L'app viene installata nella cartella dei programmi del tuo utente Windows.
+Per rimuoverla: Impostazioni > App > App installate > ONE BY ONE > Disinstalla.
+La disinstallazione non cancella i progetti né le preferenze.
+
+REQUISITI
+Windows 10 o Windows 11 a 64 bit, PC Intel/AMD (x64).
+Questa distribuzione non contiene una build nativa ARM64 o a 32 bit.
+Il runtime è incluso: non servono Node.js, Electron o una connessione Internet.
+Le prestazioni con scansioni grandi dipendono da RAM e hardware del computer.
+
+PROGETTI E FILE
+Al primo avvio scegli la cartella dei progetti. La posizione sarà sempre
+visibile nella libreria e apribile con "Show in Explorer".
+L'app conserva impostazioni, collegamenti agli originali e anteprime leggere.
+Gli originali e le scansioni restano nelle cartelle in cui li hai importati;
+non spostarli o scollegare il disco mentre lavori. I frame derivati vengono
+ricostruiti quando necessario, come nella versione Mac.
+Le preferenze dell'app sono salvate in %APPDATA%\One by One.
+Gli export vengono salvati nella posizione scelta nel dialogo di Windows.
+
+VERSIONE MAC
+Questa è una distribuzione aggiuntiva, non sostituisce la versione Mac.
+Non contiene e non modifica i progetti personali esistenti.
+I percorsi Mac (/Volumes/...) e Windows (D:\...) sono diversi: copiare soltanto
+una cartella di progetto non trasferisce automaticamente gli originali né
+aggiorna i loro collegamenti. La migrazione dei progetti Mac non è inclusa.
+Non usare la stessa libreria contemporaneamente da due computer.
+
+COMANDI
+Ctrl+S: salva il progetto.
+Ctrl+Shift+P: torna alla libreria.
+Alt: mostra il menu di sistema, normalmente nascosto per mantenere invariata
+l'interfaccia dell'app. Import, Frames, Sheet, Scans, Review ed Export restano
+gli stessi della versione Mac 1.07.
+
+SICUREZZA E VERIFICA
+È una distribuzione privata non firmata con un certificato commerciale
+Windows. SmartScreen può quindi mostrare un avviso sull'autore sconosciuto.
+Non è necessario disabilitare antivirus o protezioni di Windows.
+Usa soltanto il pacchetto ricevuto dalla fonte attesa.
+
+Il pacchetto è assemblato dal runtime Windows ufficiale di Electron 44.2.0,
+verificato con SHA-256. Interfaccia, font, QR, allineamento e motore di export
+provengono dalla stessa versione Mac. Le verifiche del workflow sono eseguite
+sul payload condiviso; l'avvio dell'EXE richiede un collaudo su un vero PC
+Windows, non disponibile durante questa preparazione su Mac.
