@@ -176,6 +176,7 @@ button{font:inherit;color:inherit}
 .card .alt a{color:var(--muted)}
 
 /* Supportaci */
+#supporta .kicker{position:relative;top:-2px}
 .support-card{flex-direction:row;align-items:center;justify-content:space-between;gap:24px 48px}
 .support-points{display:grid;gap:10px;margin:18px 0 0;padding:0;list-style:none}
 .support-points li{display:flex;gap:10px;color:var(--muted);font-size:15px}
