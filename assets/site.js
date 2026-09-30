@@ -25,7 +25,7 @@ const ICONS = {
    ------------------------------------------------------------------ */
 const RELEASE = 'https://github.com/activitydan/OBO/releases/download/Download/';
 /* Donazioni: Payment Link di Stripe (importo libero). Solo il link pubblico, nessuna chiave. */
-const SUPPORT_LINK = '';
+const SUPPORT_LINK = 'https://buy.stripe.com/dRm28qh2BdsB2Bo3jOc7u00';
 const DOWNLOADS = {
   windows: [
     { href: RELEASE + 'ONE.BY.ONE.Setup.2.0.exe', name: 'ONE.BY.ONE.Setup.2.0.exe' },
