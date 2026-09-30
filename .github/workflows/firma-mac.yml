@@ -70,7 +70,7 @@ jobs:
 
       - name: Prova di avvio su macOS
         run: |
-          set -o pipefail
+          set +e  # gli errori li gestisce prova(), così il registro arriva nel riepilogo
           prova() {
             local arch="$1"; shift
             export OBO_TEST_ROOT="$RUNNER_TEMP/obo-test-$arch"
@@ -82,12 +82,16 @@ jobs:
               echo "::notice title=Avvio $arch::ONE BY ONE si è aperta ed è rimasta aperta 25 secondi (processi di supporto: $helpers)"
               kill "$pid"; sleep 2; pkill -f "verifica/$arch" || true
             else
-              wait "$pid"; echo "::error title=Avvio $arch::l'app si è chiusa (codice $?)"; cat "avvio-$arch.log"; return 1
+              wait "$pid"; local code=$?
+              local log; log=$(tail -n 40 "avvio-$arch.log" | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+              echo "::error title=Avvio $arch::l'app si è chiusa (codice $code)%0A$log"; return 1
             fi
           }
-          prova Apple.Silicon
-          if arch -x86_64 /usr/bin/true 2>/dev/null; then prova Intel arch -x86_64
+          prova Apple.Silicon || exit 1
+          # Intel: su questo Mac (chip Apple) gira tramite Rosetta; un problema qui è un avviso, non blocca gli zip
+          if arch -x86_64 /usr/bin/true 2>/dev/null; then prova Intel arch -x86_64 || echo "::warning title=Avvio Intel::non riuscito sotto Rosetta, vedi il registro qui sopra"
           else echo "::notice title=Avvio Intel::Rosetta non disponibile su questo Mac: controllata solo la firma"; fi
+          exit 0
 
       - name: Zip firmati da scaricare
         uses: actions/upload-artifact@v4
